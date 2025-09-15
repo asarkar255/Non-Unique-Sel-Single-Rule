@@ -487,11 +487,11 @@ def analyze_unit(u: Unit) -> Dict[str, Any]:
 
     result = u.model_dump()
     result["findings"] = [f.model_dump() for f in findings]
-    result["assessment"] = (
-        f"Scanned {len(list(SELECT_BLOCK_RE.finditer(code)))} SELECT block(s). "
-        f"Flagged {len(findings)} non-unique SELECT SINGLE statement(s) for remediation. "
-        f"Catalog: schema={CATALOG.schema_version}, release={CATALOG.sap_release or 'n/a'}."
-    )
+    # result["assessment"] = (
+    #     f"Scanned {len(list(SELECT_BLOCK_RE.finditer(code)))} SELECT block(s). "
+    #     f"Flagged {len(findings)} non-unique SELECT SINGLE statement(s) for remediation. "
+    #     f"Catalog: schema={CATALOG.schema_version}, release={CATALOG.sap_release or 'n/a'}."
+    # )
     return result
 
 
